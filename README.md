@@ -10,11 +10,11 @@ ex:<br>
     username: "username"<br>
     password: "password"<br>
     
-    ===> "account name1"<br>
-    username: "username1"<br>
-    password: "password1"<br>
+    ===> "account name2"<br>
+    username: "username"<br>
+    password: "password"<br>
     
-    ...........<br>
+    ...<br>
     
 2- Compile the source code with sqlite3 lib<br>
     gcc -o store store.c -lsqlite3<br>
