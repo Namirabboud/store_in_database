@@ -6,14 +6,14 @@ in sqlite database.<br>
 
 1- First information in text file must have a specific layout<br>
 
-    ===>"account name"<br>
-    username: "username"<br>
-    password: "password"<br>
+    ===>"account name"
+    username: "username"
+    password: "password"
     
-    ===> "account name2"<br>
-    username: "username2"<br>
-    password: "password2"<br>
-    ...<br>
+    ===> "account name2"
+    username: "username2"
+    password: "password2"
+    ...
     
 2- Compile the source code with sqlite3 lib<br>
     gcc -o store store.c -lsqlite3<br>
