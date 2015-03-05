@@ -5,8 +5,7 @@ Having a text file containing usernames and passwords that u wish to store<br>
 in sqlite database.<br>
 
 1- First information in text file must have a specific layout<br>
-ex:<br>
-    ===> "account name"<br>
+ex: ===> "account name"<br>
     username: "username"<br>
     password: "password"<br>
     
