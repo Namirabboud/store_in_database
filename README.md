@@ -9,9 +9,6 @@ ex:<br>
     ===> "account name"<br>
     username: "username"<br>
     password: "password"<br>
-    
-    
-    
     ...<br>
     
 2- Compile the source code with sqlite3 lib<br>
