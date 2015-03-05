@@ -10,9 +10,9 @@ ex:<br>
     username: "username"<br>
     password: "password"<br>
     
-    ===> "account name"<br>
-    username: "username"<br>
-    password: "password"<br>
+    ===> "account name2"<br>
+    username: "username2"<br>
+    password: "password2"<br>
     ...<br>
     
 2- Compile the source code with sqlite3 lib<br>
