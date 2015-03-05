@@ -13,17 +13,20 @@ struct element{
 
 struct element elements[10];
 
-char * get_substr( char *file_name, char *substr  );
+char * get_user_input( char *str  );
 void assign_fields( char *file_name, char *domaine_name, char *username, char *password  );
 void store_in_database(); 
+char * get_database_name();
 
 void store_in_database(){
 	//first establish datbase connection
 	sqlite3 *db;
 	sqlite3_stmt *res;
 	char *err_msg = 0;
+	char *database_name;
 
-	int rc = sqlite3_open( "database.db", &db );
+	database_name = get_user_input( "database" );
+	int rc = sqlite3_open( database_name, &db );
 	
 	if ( rc != SQLITE_OK ){
 		fprintf( stderr, "Cannot open database: %s\n", sqlite3_errmsg(db) );
@@ -51,18 +54,21 @@ void store_in_database(){
 	sqlite3_close(db);
 }
 
-char * get_substr( char *file_name, char *substr )
+char * get_user_input( char *str )
 {
-	char *return_substr = malloc(20);
-		
-	printf( "Enter substring that exists in the line containing the %s in %s \n", substr, file_name );
-	fgets( return_substr, 20, stdin);
+	char *return_str = malloc(20);
+	
+	if( str == "database" ){
+		printf( "enter the full path and name of the database that you wish to store your data in " );	
+	}else{	
+		printf( "Enter substring that exists in the line containing the %s \n", str );
+	}
+	fgets( return_str, 20, stdin);
+	int i = strlen(return_str)-1;
+  	if ((i > 0) && (return_str[i] == '\n'))
+    	return_str[i] = '\0';
 
-	int i = strlen(return_substr)-1;
-  	if ((i > 0) && (return_substr[i] == '\n'))
-    	return_substr[i] = '\0';
-
-	return return_substr;
+	return return_str;
 }
 
 void assign_fields( char *file_name, char *domain_substr, char *username_substr, char *password_substr )
@@ -127,9 +133,9 @@ int main( int args, char *argv[] )
 		exit(0);
 	}
 
-	domain_substr 	= get_substr( file_name, "domain" );
-	username_substr	= get_substr( file_name, "username" );
-	password_substr = get_substr( file_name, "passwords" );
+	domain_substr 	= get_user_input( "domain" );
+	username_substr	= get_user_input( "username" );
+	password_substr = get_user_input( "passwords" );
 
 	assign_fields( file_name, domain_substr, username_substr, password_substr );
 	store_in_database();
